@@ -26,6 +26,30 @@ local function findAttackSpell()
 	end
 end
 
+function startAttack()
+	if not IsCurrentAction(AtkSpell) then
+		UseAction(AtkSpell)
+	end
+end
+
+function stopAttack()
+	if IsCurrentAction(AtkSpell) then
+		UseAction(AtkSpell)
+	end
+end
+
+local startAttackFn = function()
+	findAttackSpell()
+	startAttack()
+	startAttackFn = startAttack
+end
+
+local stopAttackFn = function()
+	findAttackSpell()
+	stopAttack()
+	stopAttackFn = stopAttack
+end
+
 function SlashCmdList.FINDATTACK(msg, editbox)
 	-- TODO: Run this when the character loads
 	findAttackSpell()
@@ -37,14 +61,10 @@ function SlashCmdList.FINDATTACK(msg, editbox)
 end
 
 function SlashCmdList.STARTATTACK(msg, editbox)
-	if not IsCurrentAction(AtkSpell) then
-		UseAction(AtkSpell)
-	end
+	startAttackFn()
 end
 
 function SlashCmdList.STOPATTACK(msg, editbox)
-	if IsCurrentAction(AtkSpell) then
-		UseAction(AtkSpell)
-	end
+	stopAttackFn()
 end
 

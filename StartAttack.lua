@@ -26,13 +26,13 @@ local function findAttackSpell()
 	end
 end
 
-function startAttack()
+local function startAttack()
 	if not IsCurrentAction(AtkSpell) then
 		UseAction(AtkSpell)
 	end
 end
 
-function stopAttack()
+local function stopAttack()
 	if IsCurrentAction(AtkSpell) then
 		UseAction(AtkSpell)
 	end

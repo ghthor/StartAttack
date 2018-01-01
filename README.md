@@ -1,12 +1,9 @@
 # StartAttack
+
 Bringing /startattack to Vanilla WoW
 
-"/findattack"                             Find Attack Spell in Action Slots
-"/startattack"                            Initiates melee combat
-"/stopattack"                             Stops melee combat
+## Slash Command Usage
 
-# Usage
-
-"/findattack"
-"/startattack"
-"/stopattack"
+* "/findattack" Find Attack Spell in Action Slots
+* "/startattack" Initiates melee combat
+* "/stopattack" Stops melee combat
